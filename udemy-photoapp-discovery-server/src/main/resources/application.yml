@@ -4,8 +4,12 @@ spring:
   application:
     name: discovery-service
 eureka:
+  datacenter: local
+  environment: development
+  server:
+    eviction-interval-timer-in-ms: 0
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://localhost:8010/eureka
+      defaultZone: http://localhost:8010
