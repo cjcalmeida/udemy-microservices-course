@@ -7,9 +7,17 @@ eureka:
   datacenter: local
   environment: development
   server:
-    eviction-interval-timer-in-ms: 0
+    renewal-percent-threshold: 0.10
+    eviction-interval-timer-in-ms: 10 # Esta propriedade é responsavel diretamente pelo tempo de atualizacao dos servicos
+    expected-client-renewal-interval-seconds: 5
+    renewal-threshold-update-interval-ms: 500
+#    response-cache-auto-expiration-in-seconds: 60
+#    response-cache-update-interval-ms: 5000
+#    number-of-replication-retries: 2
+#    max-time-for-replication: 5000
+    enable-self-preservation: true
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://localhost:8010
+      defaultZone: http://localhost:8010/eureka
